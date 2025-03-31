@@ -1,1 +1,231 @@
-<h1>Maugfy's Personal Website(Test)</h1>
+<!doctype html>
+<html>
+	<head>
+		<title>Maugfy官网</title>
+		<link rel="Shortcut Icon" href="https://i.postimg.cc/76pWSzPt/2022-12-10-205642-2.jpg">
+		<script>
+			window.alert("欢迎来到Maugfy网站");
+			function displayDate()
+			{
+			document.getElementById("demo").innerHTML=Date();
+			} 
+			var x=document.getElementById("one");
+			function getLocation()
+			{
+				if (navigator.geolocation)
+				{
+					navigator.geolocation.getCurrentPosition(showPosition);
+				}
+				else
+				{
+					x.innerHTML="该浏览器不支持获取地理位置。";
+				}
+			}
+			function showPosition(position)
+			{
+				x.innerHTML="纬度: " + position.coords.latitude + 
+				"<br>经度: " + position.coords.longitude;	
+			}
+		</script>
+		<style>
+			body{
+				background:#00f;
+				background-attachment:fixed;
+				background-size:cover;
+			}
+			.dropbtn {
+				background-color: #e5eecc;
+				color: #e5eecc;
+				padding: 90px;
+				font-size: 45px;
+				border: none;
+				cursor: pointer;
+			}
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+			.dropdown-content a {
+				color: black;
+				padding: 2px 6px;
+				text-decoration: none;
+				display: block;
+			}
+			.dropdown-content a:hover {
+				background-color: #f1f1f1
+			}
+			.dropdown:hover .dropdown-content {
+		    	display: block;
+			}
+			.dropdown:hover .dropbtn {
+    			background-color: #3e8e41;
+			}
+			.button {
+				background-color: #e5eecc;
+				border: none;
+				color: black;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+			.buttona {
+				background-color: #4CAF50;
+				border: none;
+				color: white;
+				padding: 8px 20px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+			h1
+			{
+				color:white;
+    			text-shadow:2px 2px 2px #000;
+			}
+			h2
+			{
+				color:white;
+    			text-shadow:2px 2px 2px #000;
+			}
+			h3
+			{
+				color:white;
+    			text-shadow:2px 2px 2px #000;
+			}
+			p
+			{
+				color:white;
+				text-shadow:2px 2px 2px #000;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<center>
+				<div class="dropdown">
+					<button class="button">朋友网站</button>
+					<div class="dropdown-content">
+						<a href="https://e2.rth1.xyz">Earth2网站</a>
+						<a href="https://nsakrty.rth1.xyz">Nsak网站</a>
+						<a href="https://Zubeneschamali.rth1.xyz">青菜网站</a>
+						<a href="https://tau-sgr.mysxl.cn/">斗宿五网站</a>
+						<a href="https://moochion.rth1.xyz">暮秋网站</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<button class="button">Maugfy各平台号</button>
+					<div class="dropdown-content">
+						<a href="https://space.bilibili.com/1170714365/">Maugfy-B站</a>
+						<a href="https://www.ixigua.com/home/792089337281310/?source=pgc_author_profile&list_entrance=anyVideo">Maugfy-西瓜</a>
+						<a href="https://www.douyin.com/user/MS4wLjABAAAAwU_3GJ0HpILt8gt3C05zSEccLhfxAPQhBMV8zkGP4fygpQXWiCrCXCC-PzQ9M1Q9?relation=0&vid=7121672448839372040">Maugfy-抖音</a>
+						<a href="https://live.kuaishou.com/profile/Maugfy-MAUGFY">Maugfy-快手</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<button class="button">Maugfy的其他站</button>
+					<div class="dropdown-content">
+						<a href="https://maugfy.rth1.xyz/system.html">Maugfy自制虚拟系统</a>
+						<a href="https://maugfy.rth1.xyz/Addendum.html">Maugfy收获的所有赠图区</a>
+						<a href="https://maugfy.rth1.xyz/dsb/Planet_Studio.html">行星生成器1.0</a>
+						<a href="https://maugfy.rth1.xyz/dsb/planet.html">行星生成器2.0（建设中ing）</a>
+						<a href="https://maugfy.rth1.xyz/dsb/Heart_work.html">心算测试</a>
+					</div>
+				</div>
+			</center>
+		</header>
+		<center>
+			<h1 id="h" onclick="fun()" style="display: inline;">Maugfy官网</h1>
+		</center>
+		<p align="center"><img src="https://i.postimg.cc/7qLKyBW5/64-20221016135238-1.png" height="200" width="360" title="星球人:D" border="3"></p>
+		<div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid#662222;">
+			<h2 align="center">我来介绍一下我自己</h2>
+			<hr>
+			<details align="center" style="color:white;text-shadow:2px 2px 2px #000;">
+				<p>我是一个up主，目前所在的平台有抖音、西瓜、火山、bilibili、百度、快手、头条、小红书，其中，常上线的平台有抖音、bilibili。</p>
+				<p>我是一位高中生，地理和数学还有物理顶尖，但其他科还行，文科都不怎么好(除了英语)，理科比较厉害(除了生物)；目前在读高一。</p>
+				<p>本人爱好是天文、地理、数学、物理、化学、英语、象棋、编程、绘画等...</p>
+        		<p>本人会一些html、Python</p>
+			</details>
+		<h3 align="center"><var>QQ群："839557421"和"921751560"</var></h3>
+		</div>
+		</br>
+		<div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid#662222;">
+			<h3 align="center"><var>星球阁官网</var></h3>
+			<hr>
+			<p align="center"><a href="http://www.srpn.top"><img border="0" src="https://p3-pc.douyinpic.com/img/aweme-avatar/tos-cn-avt-0015_7a2b9f14a0d3c050f429466559962938~c5_300x300.jpeg?from=2956013662" alt="进入星球阁官网" width="200" height="200" title="星球阁官网"></a></p>
+		</div>
+		<center>
+			<p id="one"></p>
+			<button onclick="getLocation()" class="buttona">点我获取您当前坐标:D</button>
+		</center>
+		<div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid#662222;">
+			<h1 align="center">各平台粉丝数</h1>
+			<hr>
+	    	<table align="center" border="1" style="color:white">
+        	    <tbody>
+            	    <tr>
+            	        <th style="text-shadow:2px 2px 2px #000;">平台</th>
+            	        <th style="text-shadow:2px 2px 2px #000;">数字</th>
+            	    </tr>
+            	    <tr>
+            	        <td style="text-shadow:2px 2px 2px #000;">抖音粉丝数</td>
+            	        <td style="text-shadow:2px 2px 2px #000;">48.6w</td>
+            	    </tr>
+            	    <tr>
+                	    <td style="text-shadow:2px 2px 2px #000;">b站粉丝数</td>
+                	    <td style="text-shadow:2px 2px 2px #000;">16.7w</td>
+                	</tr>
+                	<tr>
+						<td style="text-shadow:2px 2px 2px #000;">快手粉丝数</td>
+						<td style="text-shadow:2px 2px 2px #000;">32.5w</td>
+					</tr>
+					<tr>
+						<td style="text-shadow:2px 2px 2px #000;">小红书</td>
+						<td style="text-shadow:2px 2px 2px #000;">7.9w</td>
+					</tr>
+					<tr>
+						<td style="text-shadow:2px 2px 2px #000;">视频号</td>
+						<td style="text-shadow:2px 2px 2px #000;">15.1w</td>
+					</tr>
+					<tr>
+						<td style="text-shadow:2px 2px 2px #000;">总合</td>
+						<td style="text-shadow:2px 2px 2px #000;">约120.8w</td>
+					</tr>
+					<tr>
+                	    <td style="text-shadow:2px 2px 2px #000;">表格更新时间</td>
+                	    <td style="text-shadow:2px 2px 2px #000;">2025.3.31</td>
+                	</tr>
+            	</tbody>
+        	</table>
+		</div>
+		<p id="demo" align="center"></p>
+		<p align="center"><button type="button" onclick="displayDate()">显示时间</button></p>
+		<div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid#662222;">
+			<h2 align="center">你也想建网站吗？</h2>
+			<hr>
+			<h6 align="center" style="color:white;text-shadow:2px 2px 2px #000;"><var>那么需要学习html，可以点击这个链接进行学习</var></h6>
+			<center>
+				<a href="https://www.runoob.com/html/html-tutorial.html"><button class="buttona">进入</button></a>
+			</center>
+			<hr>
+			<h6 align="center" style="color:white;text-shadow:2px 2px 2px #000;"><var>然后登录这个并且实名认证完毕就可以创建网站了</var></h6>
+			<center>
+				<a href="https://host.retiehe.com/"><button class="buttona">进入</button></a>
+			</center>
+		</div>
+    </body>
+</html>
