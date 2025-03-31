@@ -1,0 +1,499 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>行星生成器1.0</title>
+		<style>
+			body{
+			    background:#bbffcc
+			}
+			.back{
+				width:450px;
+				height:450px;
+				background-color:#000;
+				background-size:100% 100%;
+				position:relative;
+				overflow:hidden;
+			}
+			.ad{
+				position:absolute;
+				left:225px;
+				top:225px;
+				transition-duration:0.3s;
+				transition-property:all;
+			}
+			.addd{
+				position:absolute;
+				left:0px;
+				top:0px;
+				transition-duration:0.3s;
+				transition-property:all;
+			}
+			.circlee{
+				width:0px;
+				height:0px;
+				background-color:blue;
+				border-radius:300px;
+				margin:0px 0px;
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.shadowr{
+				width:0px;
+				height:0px;
+				background-color:transparent;
+				border-radius:300px;
+				margin:0px 0px;
+				filter:opacity(0.9) blur(0px);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.cloudd{
+				width:0px;
+				height:0px;
+				background:url("https://i.postimg.cc/XvV9nsW3/Image-1724648393792.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				filter:opacity(0%);
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.ocean{
+				width:0px;
+				height:0px;
+				background:url("https://maugfy{$rthSuffix}/ocean.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+				filter:opacity(0%);
+			}
+			.backs{
+				width:450px;
+				height:450px;
+				background:url("https://i.postimg.cc/x17p5kmr/112-20240821183650.png");
+				background-size:100% 100%;
+				margin:0px -225px;
+				transition-property:all;
+				transition-duration:0.3s;
+				filter:opacity(0);
+			}
+			.stars{
+				width:450px;
+				height:450px;
+				background:url("https://i.postimg.cc/J4cSm3FR/114-20240821232149.png");
+				background-size:100% 100%;
+				margin:0px -225px;
+				transition-property:all;
+				transition-duration:0.3s;
+				filter:opacity(0);
+			}
+			.hengxing{
+				width:0px;
+				height:0px;
+				background:url("https://i.postimg.cc/J7pbWfzK/111-20240821182951.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.light{
+				width:0px;
+				height:0px;
+				background:url("https://i.postimg.cc/G3jCPTvy/111-20240822172755.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				margin:0px 0px;
+				filter:blur(0px) hue-rotate(0deg) opacity(0);
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.geo1{
+				width:0px;
+				height:0px;
+				background:url("https://maugfy{$rthSuffix}/geography1.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+				filter:opacity(0%) hue-rotate(0deg) saturate(1);
+			}
+			.geo2{
+				width:0px;
+				height:0px;
+				background:url("https://maugfy{$rthSuffix}/geography2.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+				filter:opacity(0%) hue-rotate(0deg) saturate(1);
+			}
+			.ac{
+				width:100px;
+				height:100px;
+				background:transparent url('https://i.postimg.cc/ZnV803jQ/123-20240831161001.png');
+				background-size:100% 100%;
+				border-radius:100px;
+				box-shadow:0px 10px 3px black;
+				transform:rotateX(30deg);
+				font-size:20px;
+				transition-property:all;
+				transition-duration:0.1s;
+			}
+			.ac:active{
+				margin:-20px 0px;
+				transform:rotateX(50deg);
+				box-shadow:0px 50px 3px black;
+			}
+			.ring{
+				width:0px;
+				height:0px;
+				filter:opacity(30%) hue-rotate(0deg) saturate(1);
+				margin:0px 0px;
+				transition-duration:0.3s;
+				transition-property:all;
+				transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				background:url("https://maugfy{$rthSuffix}/ring1.png");
+				background-size:100% 100%;
+			}
+			.ice{
+				width:0px;
+				height:0px;
+				left:0px;
+				top:0px;
+				background:url("https://maugfy{$rthSuffix}/ice1.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				filter:opacity(1);
+				transition-duration:0.3s;
+				transition-property:all;
+				transform:rotateZ(20deg);
+			}
+			.gas{
+				width:0px;
+				height:0px;
+				background:url("https://maugfy{$rthSuffix}/gas3.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				filter:opacity(1) blur(0.6px) hue-rotate(0deg) saturate(0);
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.volcanos{
+				width:0px;
+				height:0px;
+				background:url("https://maugfy{$rthSuffix}/volcano.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				filter:opacity(1);
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.lavas{
+				width:0px;
+				height:0px;
+				background:url("https://maugfy{$rthSuffix}/lava.png");
+				border-radius:300px;
+				background-size:100% 100%;
+				filter:opacity(1);
+				margin:0px 0px;
+				transform:rotateZ(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.shadowed{
+				filter:blur(4px) hue-rotate(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+		</style>
+		<script>
+			let n1 = ["Ab","Ac","Ad","Ag","Ain","Al","Am","An","Ar","As","Att","Au","Aw","Ay","Ba","Be","Bi","Bl","Br","Bs","By","Ca","Ce","Ck","Cl","Ch","Cm","Co","Coo","Cr","Cu","Cy","Da","De","Di","Dl","Do","Doo","Dr","Dro","Du","Dy","Ea","Eco","Eff","Eg","En","Er","Es","Eu","Ew","Ex","Ey","Fa","Fe","Fir","Fl","Fo","Fr","Fu","Fy","Ga","Ge","Gi","Gla","Gle","Go","Gra","Gre","Gu","Gy","Ha","He","Hg","Hi","Hl","Ho","Hr","Hy","Im","In","Ir","Ja","Jc","Je","Jo","Jr","Ju","Ka","Ke","Ki","Kr","Ky","La","Le","Li","Lo","Lu","Ly","Ma","Me","Mg","Mi","Mn","Mo","Mr","Mu","My","Na","Ne","Ng","Ni","No","Nu","Ny","On","Or","Ou","Pa","Ph","Pe","Pi","Pm","Po","Pr","Pu","Py","Qu","Ra","Re","Ri","Rn","Ro","Ru","Ry","Sa","Sc","Se","Sh","Si","Sl","So","Squ","Sr","Su","Sw","Sy","Ta","Te","Th","Ti","Tl","To","Tr","Tu","Ty","Ua","Ui","Ul","Un","Ur","Uy","Va","Ve","Vi","Vo","Vy","Wa","We","Wi","Wo","Wu","Wy","Xa","Xe","Xr","Ya","Ye","Yo","Za","Ze","Zh","Zr","Zy"];
+			let n2 = ["ab","ac","ad","ag","ain","al","am","an","ar","as","att","au","aw","ay","ba","be","bi","bl","br","bu","by","ca","ce","ck","cl","ch","cm","co","coo","cr","cu","cy","da","de","di","dl","do","doo","dr","dro","du","dy","ea","eco","eff","eg","en","er","es","eu","ew","ex","ey","fa","fe","fir","fl","fo","fr","fu","fy","ga","ge","gi","gla","gle","go","gra","gre","gu","gy","ha","he","hg","hi","hl","ho","hr","hy","im","in","ir","ja","jc","je","jo","jr","ju","ka","ke","ki","kr","ky","la","le","li","lo","lu","ly","ma","me","mg","mi","mn","mo","mr","mu","my","na","ne","ng","ni","no","nu","ny","on","or","ou","pa","pe","ph","pi","pm","po","pr","pu","py","qu","ra","re","ri","rn","ro","ru","ry","sa","sc","se","sh","si","sl","so","squ","sr","ss","su","sw","sy","ta","te","th","ti","tl","to","tr","tu","ty","ua","uc","ue","ui","ul","un","ur","uy","va","ve","vi","vo","vy","wa","we","wi","wo","wu","wy","xa","xe","xr","ya","ye","yo","za","ze","zh","zr","zy","","","","","","","","","","","","","","","","","",""];
+			let ice = ["https://maugfy{$rthSuffix}/ice1.png","https://maugfy{$rthSuffix}/ice2.png","https://maugfy{$rthSuffix}/ice3.png","https://maugfy{$rthSuffix}/ice4.png","https://maugfy{$rthSuffix}/ice5.png"];
+			let gas = ["https://maugfy{$rthSuffix}/gas1.png","https://maugfy{$rthSuffix}/gas2.png","https://maugfy{$rthSuffix}/gas3.png","https://maugfy{$rthSuffix}/gas4.png","https://maugfy{$rthSuffix}/gas5.png"];
+			let cloudr = ["https://i.postimg.cc/XvV9nsW3/Image-1724648393792.png","https://i.postimg.cc/sgzTZ9zH/Image-1724648383060.png","https://i.postimg.cc/PrW4hpDW/Image-1724648397078.png"];
+		</script>
+	</head>
+	<body>
+		<center>
+			<h1>行星生成器1.0</h1>
+			<p>制作人:Maugfy,Hliva</p>
+			<hr>
+		</center>
+		<center>
+			<h2 id="name">名字：</h2>
+			<div class="back">
+				<div style="width:0px;height:0px;left:0px;top:0px">
+					<div class="backs" id="backer"></div>
+				</div>
+				<div style="width:0px;height:0px;left:0px;top:0px">
+					<div class="stars" id="starer"></div>
+				</div>
+				<div class="ad" id="pointhengxing" style="transform:rotateZ(0deg)">
+					<div class="hengxing" id="hengxings"></div>
+				</div>
+				<div class="ad" id="pointring">
+					<div class="ring" id="ring1"></div>
+				</div>
+				<div class="ad" id="point">
+					<div class="circlee" id="circle2" style="filter:blur(0px) saturate(0);"></div>
+				</div>
+				<div class="ad" id="point2">
+					<div class="circlee" id="circle" style="filter:saturate(1);"></div>
+				</div>
+				<div class="ad" id="point9">
+					<div class="ocean" id="ocean"></div>
+				</div>
+				<div class="ad" id="point5">
+					<div class="geo1" id="geography1"></div>
+				</div>
+				<div class="ad" id="point6">
+					<div class="geo2" id="geography2"></div>
+				</div>
+				<div class="ad" id="pointvolcano">
+					<div class="volcanos" id="volcano"></div>
+				</div>
+				<div class="ad" id="point10">
+					<div class="ice" id="icee" style="background-size:cover"></div>
+				</div>
+				<div class="ad" id="point3">
+					<div class="cloudd" id="cloud" style="background-size:cover"></div>
+				</div>
+				<div class="ad" id="pointgas">
+					<div class="gas" id="gass" style="background-size:cover"></div>
+				</div>
+				<div class="ad" id="pointlava">
+					<div class="lavas" id="lava"></div>
+				</div>
+				<div class="addd">
+					<canvas class="shadowed" width="450" height="450" id="shadowd"></canvas>
+				</div>
+				<div class="ad" id="pointring2">
+					<div class="ring" id="ring2"></div>
+				</div>
+				<div class="ad" id="pointlights">
+					<div class="light" id="lights"></div>
+				</div>
+			</div>
+			<script> 
+				np=()=>{
+					let seeds = Math.random() * (2*10**20) - 10**20;
+					seed.value = `${seeds}`;
+					nn();
+				}
+				nn=()=>{
+					let sed = document.getElementById("seed").value;
+					let icerandom = ice[Math.floor(Math.sin(sed) * ice.length/2 + ice.length/2)];
+					let gasrandom = gas[Math.floor(Math.sin(sed) * gas.length/2 + gas.length/2)];
+					let cloudrandom = cloudr[Math.floor(Math.sin(sed) * cloudr.length/2 + cloudr.length/2)];
+					let icen = Math.floor(Math.sin(7*sed) * 1 + 1);
+					let gasn = Math.floor(Math.sin(sed/2) * 1 + 1);
+					let lavan = Math.floor(Math.sin(sed/7) * 2);
+					let lavaz = Math.sin(sed/3) * 180;
+					let random = Math.floor(Math.sin(2*sed) * 92 + 92);
+					let random2 = Math.floor(Math.sin(3*sed +10) * 102.5 + 102.5);
+					let random3 = Math.floor(Math.sin(sed +7) * 102.5 + 102.5);
+					let random4 = Math.floor(Math.sin(5*sed -4) * 102.5 + 102.5);
+					let blurr = Math.sin(sed/4) * 7.5 - 2.5;
+					let scale = 190 + Math.sin(sed/12) * 150;
+					let angelx = Math.sin(sed*7) * 180;
+					let angely = Math.sin(sed/66) * 180;
+					let ringcolor = Math.sin(sed/34) * 180 + 180;
+					let ringlight = Math.sin(sed/22) * 22.5 + 22.5;
+					let cloudlight = Math.sin(sed/11) * 55 + 55;
+					let cloudz = Math.sin(sed/39) * 180 + 180;
+					let geographylight1 = Math.sin(sed/43) * 50 + 50;
+					let geographyz1 = Math.sin(sed/44) * 180;
+					let geographylight2 = Math.sin(sed/22) * 50 + 50;
+					let geographyz2 = Math.sin(sed/17) * 180;
+					let geographycolor1 = Math.sin(sed/19) * 180;
+					let geographycolor2 = Math.sin(sed/53) * 180;
+					let icez = Math.sin(sed/47) * 180;
+					let shadowz = Math.sin(sed/88) * 180;
+					let saturatecircle = Math.sin(sed/13) * 0.45 + 0.45;
+					let saturatering = Math.sin(sed/74) * 0.45 + 0.45;
+					let saturategeography1 = Math.sin(sed/140) * 0.45 + 0.45;
+					let saturategeography2 = Math.sin(sed/122) * 0.45 + 0.45;
+					let scalering = (2.15 + Math.sin(sed/133) * 0.45) * scale;
+					let gasz = Math.sin(sed/72) * 180;
+					let oceanlight = Math.sin(sed/144) * 7.5 + 92.5;
+					let oceanz = Math.sin(sed/375) * 180;
+					var k = 225 - scale/2;
+					var m = 225 - scalering/2;
+					var p = 225 - 1.05 * scale;
+					var q = 225 - 0.51 * scale;
+					let randomcolor = `#${Math.floor(Math.sin(sed/112) * (0xffffff)/2 + (0xffffff)/2).toString(16)}`;
+				    document.getElementById("name").innerHTML="名字：" + n1[random] + n2[random2] + n2[random3] + n2[random4];
+				    circle.style.width = `${scale}px`;
+					circle.style.height = `${scale}px`;
+					circle.style.backgroundColor = `${randomcolor}`;
+					circle.style.filter = `saturate(${saturatecircle})`;
+					point.style.left = `${k}px`;
+					point.style.top = `${k}px`;
+					point2.style.left = `${k}px`;
+					point2.style.top = `${k}px`;
+					point3.style.left = `${k}px`;
+					point3.style.top = `${k}px`;
+					point5.style.left = `${q}px`;
+					point5.style.top = `${q}px`;
+					point6.style.left = `${q}px`;
+					point6.style.top = `${q}px`;
+					point9.style.left = `${k}px`;
+					point9.style.top = `${k}px`;
+					point10.style.left = `${k}px`;
+					point10.style.top = `${k}px`;
+					pointgas.style.left = `${q}px`;
+					pointgas.style.top = `${q}px`;
+					pointlava.style.left = `${k}px`;
+					pointlava.style.top = `${k}px`;
+					pointvolcano.style.left = `${k}px`;
+					pointvolcano.style.top = `${k}px`;
+					geography1.style.width = `${1.02 * scale}px`;
+					geography1.style.height = `${1.02 * scale}px`;
+					geography1.style.filter = `opacity(${geographylight1}%) hue-rotate(${geographycolor1}deg) saturate(${saturategeography1})`;
+					geography1.style.transform = `rotateZ(${geographyz1}deg)`;
+					geography2.style.width = `${1.02 * scale}px`;
+					geography2.style.height = `${1.02 * scale}px`;
+					geography2.style.filter = `opacity(${geographylight2}%) hue-rotate(${geographycolor2}deg) saturate(${saturategeography2})`;
+					geography2.style.transform = `rotateZ(${geographyz2}deg)`;
+					pointring.style.left = `${m}px`;
+					pointring.style.top = `${m}px`;
+					pointring2.style.left = `${m}px`;
+					pointring2.style.top = `${m}px`;
+					circle2.style.width = `${scale}px`;
+					circle2.style.height = `${scale}px`;
+					circle2.style.backgroundColor = `${randomcolor}`;
+					circle2.style.filter = `blur(${blurr}px) saturate(${saturatecircle})`;
+					ring1.style.width = `${scalering}px`;
+					ring2.style.width = `${scalering}px`;
+					ring1.style.height = `${scalering}px`;
+					ring2.style.height = `${scalering}px`;
+					ring1.style.transform = `rotateX(${angelx}deg) rotateY(${angely}deg) rotateZ(${-45}deg)`;
+					ring2.style.transform = `rotateX(${angelx}deg) rotateY(${angely}deg) rotateZ(${135}deg)`;
+					ring1.style.filter = `opacity(${ringlight}%) hue-rotate(${ringcolor}deg) saturate(${saturatering})`;
+					ring2.style.filter = `opacity(${ringlight}%) hue-rotate(${ringcolor}deg) saturate(${saturatering})`;
+				    ocean.style.width = `${scale}px`;
+					ocean.style.height = `${scale}px`;
+					ocean.style.transform = `rotateZ(${oceanz}deg)`;
+				    ocean.style.filter = `opacity(${oceanlight}%)`;
+					icee.style.width = `${scale}px`;
+					icee.style.height = `${scale}px`;
+					icee.style.filter = `opacity(${icen})`;
+					icee.style.backgroundSize = `${100}% ${100}%`;
+					icee.style.background = `url('${icerandom}')`;
+					icee.style.backgroundSize = `${100}% ${100}%`;
+					icee.style.transform = `rotateZ(${icez}deg)`;
+					cloud.style.width = `${scale}px`;
+					cloud.style.height = `${scale}px`;
+					cloud.style.filter = `opacity(${cloudlight})`;
+					cloud.style.backgroundSize = `${100}% ${100}%`;
+					cloud.style.background = `url('${cloudrandom}')`;
+					cloud.style.backgroundSize = `${100}% ${100}%`;
+					cloud.style.transform = `rotateZ(${cloudz}deg)`;
+					gass.style.width = `${1.02 * scale}px`;
+					gass.style.height = `${1.02 * scale}px`;
+					gass.style.filter = `opacity(${gasn}) blur(0.6px) hue-rotate(${geographycolor1}deg) saturate(${saturategeography1})`;
+					gass.style.transform = `rotateZ(${gasz}deg)`;
+					gass.style.backgroundSize = `${100}% ${100}%`;
+					gass.style.background = `url('${gasrandom}')`;
+					gass.style.backgroundSize = `${100}% ${100}%`;
+					 if(lavan == 1){
+						var lavab = 1;
+					}
+					else{
+						var lavab = 0;
+					}
+					lava.style.width = `${scale}px`;
+					lava.style.height = `${scale}px`;
+					lava.style.filter = `opacity(${lavab})`;
+					lava.style.transform = `rotateZ(${lavaz}deg)`;
+					volcano.style.width = `${scale}px`;
+					volcano.style.height = `${scale}px`;
+					volcano.style.filter = `opacity(${lavab})`;
+					volcano.style.transform = `rotateZ(${lavaz}deg)`;
+					if(lavab == 1){
+						gass.style.filter = `opacity(${0}) blur(0.6px) hue-rotate(${geographycolor1}deg) saturate(${saturategeography1})`;
+					}
+					backer.style.filter = `opacity(${Math.sin(sed/244)*0.025+0.125})`;
+					starer.style.filter = `opacity(${Math.sin(sed/79)*0.425+0.725})`;
+					var shadown = Math.sin(sed/8) * 3.5 + 3.5;
+					var canshadow = Math.floor(Math.sin(sed/17.6) * 1 + 1);
+					var c=document.getElementById("shadowd");
+					var ctx=c.getContext("2d");
+					c.width=c.width;
+					ctx.beginPath();
+					ctx.clearRect(0,0,450,450);
+					ctx.fillStyle = ("#000");
+					ctx.arc(225,225,scale/1.93,shadown-Math.PI,shadown);
+					ctx.fill();
+					var colorofhx = Math.sin(sed) * 180;
+					var dhx = Math.sin(sed) * 150 + 250;
+					pointhengxing.style.transform = `rotateZ(${shadown}deg)`;
+					hengxings.style.width = `${dhx}px`;
+					hengxings.style.height = `${dhx}px`;
+					lights.style.width = `${3.5*dhx}px`;
+					lights.style.height = `${3.5*dhx}px`;
+					hengxings.style.transform = `rotateZ(${shadown * (180/Math.PI)}deg)`;
+					hengxings.style.filter = `blur(${0}px) hue-rotate(${colorofhx}deg)`;
+				    lights.style.filter = `blur(${0}px) hue-rotate(${colorofhx}deg) opacity(${(-1/100)*dhx+3})`;
+				    shadowd.style.filter = `opacity(0.9) blur(${scale*0.01}px)`;
+				    if(canshadow == 1){
+						var shortradius = Math.sin(sed/16) * 0.5 + 0.5;
+						var distancehx = (0.5*3**(1/2)/shortradius)*scale;
+						pointhengxing.style.left = `${225-(dhx/2)+((distancehx)*Math.cos((shadown-3*Math.PI/2)))}px`;
+						pointhengxing.style.top = `${225-(dhx/2)+((distancehx)*Math.sin((shadown-3*Math.PI/2)))}px`;
+						pointlights.style.left = `${225-(3.5*dhx/2)+((distancehx)*Math.cos((shadown-3*Math.PI/2)))}px`;
+						pointlights.style.top = `${225-(3.5*dhx/2)+((distancehx)*Math.sin((shadown-3*Math.PI/2)))}px`;
+						ctx.beginPath();
+						ctx.fillStyle = ("#000");
+						ctx.ellipse(225,225,scale/1.93,(scale/1.93)*(shortradius),shadown,0,2*Math.PI,);
+						ctx.fill();
+					}
+					else{
+						pointhengxing.style.left = `${225-(dhx/2)+(1200*Math.cos((shadown-3*Math.PI/2)))}px`;
+						pointhengxing.style.top = `${225-(dhx/2)+(1200*Math.sin((shadown-3*Math.PI/2)))}px`;
+						pointlights.style.left = `${225-(dhx/2)+(1200*Math.cos((shadown-3*Math.PI/2)))}px`;
+						pointlights.style.top = `${225-(dhx/2)+(1200*Math.sin((shadown-3*Math.PI/2)))}px`;
+						ctx.beginPath();
+						ctx.ellipse(225,225,scale/1.93,(scale/1.93)*(Math.sin(sed) * 0.5 + 0.5),shadown,0,2*Math.PI,);
+						ctx.clip();
+						ctx.clearRect(0,0,450,450);
+						ctx.closePath();
+						ctx.Rect(0,0,450,450);
+						ctx.clip();
+					}
+				}
+			</script>
+		</center>
+		<center>
+			<hr>
+			<button onclick="np()" class="ac">随机生成</button>
+			<br>
+			<input type="number" min="-10**20" max="10**20" id="seed" value="0">
+			<button onclick="nn()" class="ac">种子生成</button>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</center>
+	</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>行星生成器2.0</title>
+		<style>
+			.block{
+				width:100px;
+				height:60px;
+				background-color:white;
+				border-radius:10px;
+				border:0px solid white;
+				box-shadow:2px 1px 2px blue;
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.block:active{
+				box-shadow:inset 6px 3px 2px blue;
+			}
+			.back{
+				width:450px;
+				height:450px;
+				background-color:black;
+				position:relative;
+				overflow:hidden;
+			}
+			.sphere_body{
+				width:0px;
+				height:0px;
+				background-color:red;
+				border-radius:500px;
+				transition-duration:0.3s;
+				transition-property:all;
+			}
+			.atmosphere{
+				width:0px;
+				height:0px;
+				background-color:blue;
+				border-radius:500px;
+				filter:blur(5px);
+				transition-duration:0.3s;
+				transition-property:all;
+			}
+			.malpoint{
+				width:0px;
+				height:0px;
+				position:absolute;
+				left:225px;
+				top:225px;
+				transition-duration:0.3s;
+				transition-property:all;
+			}
+			.shadowpoint{
+				width:0px;
+				height:0px;
+				position:absolute;
+				left:0px;
+				top:0px;
+				transition-duration:0.3s;
+				transition-property:all;
+			}
+			.shadowed{
+				filter:blur(4px) hue-rotate(0deg);
+				transition-property:all;
+				transition-duration:0.3s;
+			}
+			.a{
+				filter:opacity(0);
+			}
+		</style>
+		<script>
+			nseed=()=>{
+				let seet = Math.random() * (2*10**20) - 10**20;
+				seed.value = `${seet}`;
+				sb();
+			}
+			sb=()=>{
+				let seeds = document.getElementById("seed").value;
+				var size = Math.floor(75 * Math.sin(11 * seeds) + 150);
+				let random_color_one = `#${Math.floor(Math.sin(seeds/112) * (0xffffff)/2 + (0xffffff)/2).toString(16)}`;
+				let random_color_two = `#${Math.floor(Math.sin(seeds/77) * (0xffffff)/2 + (0xffffff)/2).toString(16)}`;
+				sphere_bodys.style.backgroundColor = `${random_color_one}`;
+				malpoint_sphere_body.style.left = `${225 - size/2}px`
+				malpoint_sphere_body.style.top = `${225 - size/2}px`
+				sphere_bodys.style.width = `${size}px`;
+				sphere_bodys.style.height = `${size}px`;
+				atmospheres.style.backgroundColor = `${random_color_two}`;
+				malpoint_atmosphere.style.left = `${225 - (size * (0.05 * Math.sin(13 * seeds) + 1.06))/2}px`;
+				malpoint_atmosphere.style.top = `${225 - (size * (0.05 * Math.sin(13 * seeds) + 1.06))/2}px`;
+				atmospheres.style.width = `${size * (0.05 * Math.sin(13 * seeds) + 1.06)}px`;
+				atmospheres.style.height = `${size * (0.05 * Math.sin(13 * seeds) + 1.06)}px`;
+				atmospheres.style.filter = `blur(${size/40}px)`;
+				var shadown = Math.floor(Math.sin(seeds/8) * 3.5 + 3.5);//以下是阴影动画区
+				var canshadow = Math.floor(Math.sin(seeds/17.6) * 1 + 1);
+				var oldshadow = document.getElementById("oldsha").value;
+				var oldsize = document.getElementById("olds").value;
+				let i = 0;
+				const intervalld = setInterval(function(){
+						if(i>=20){
+							clearInterval(intervalld);
+							return;//20帧动画
+						};
+						i++;
+						var deltasize = size - oldsize;
+						var deltashadow = shadown - oldshadow;
+						var c=document.getElementById("shadow");
+						var ctx=c.getContext("2d");
+						ctx.beginPath();
+						ctx.clearRect(0,0,450,450);
+						ctx.fillStyle = ("#000");
+						ctx.arc(225,225,(oldsize + i * deltasize/20)/1.8,oldshadow + i * deltashadow/20 - Math.PI,oldshadow + i * deltashadow/20);//delta+i*b/c形式:每一帧不同参数
+						ctx.fill();
+				},15)
+				olds.value = `${size}`;
+				oldsha.value = `${shadown}`;//以上是阴影动画区
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			<h1>行星生成器2.0</h1>
+			<p>制作人:Maugfy</p>
+			<hr>
+		</center>
+		<center>
+			<div class="back">
+				<div class="malpoint" id="malpoint_atmosphere">
+					<div class="atmosphere" id="atmospheres"></div>
+				</div>
+				<div class="malpoint" id="malpoint_sphere_body">
+					<div class="sphere_body" id="sphere_bodys"></div>
+				</div>
+				<div class="shadowpoint" id="malpoint_shadow">
+					<canvas id="shadow" width="450" height="450" class="shadowed">
+				</div>
+			</div>
+			<hr>
+			<button class="block" onclick="nseed()">生成</button>
+			<input type="number" min="-10**20" max="10**20" id="seed" value="0">
+			<button onclick="sb()" class="block">种子生成</button>
+			<br>
+			<input type="number" id="olds" value="0" class="">
+			<input type="number" id="oldsha" value="0" class="">
+		</center>
+	</body>
+</html>

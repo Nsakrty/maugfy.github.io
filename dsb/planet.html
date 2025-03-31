@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>行星生成器2.0</title>
+		<style>
+			.ac{
+				width:100px;
+				height:60px;
+				background-color:white;
+				border-radius:10px;
+				border:0px solid white;
+				box-shadow:2px 1px 2px blue;
+				transition-property:all;
+				transition-duration:0.7s;
+			}
+			.ac:active{
+				box-shadow:inset 6px 3px 2px blue;
+			}
+			.back{
+				width:450px;
+				height:450px;
+				background-color:black;
+				position:relative;
+				overflow:hidden;
+			}
+			.circle{
+				width:0px;
+				height:0px;
+				background-color:blue;
+				border-radius:500px;
+				transition-duration:0.7s;
+				transition-property:all;
+			}
+			.circle2{
+				width:0px;
+				height:0px;
+				background-color:blue;
+				border-radius:500px;
+				filter:blur(5px);
+				transition-duration:0.7s;
+				transition-property:all;
+			}
+			.ad{
+				width:0px;
+				height:0px;
+				position:absolute;
+				left:225px;
+				top:225px;
+				transition-duration:0.7s;
+				transition-property:all;
+			}
+		</style>
+		<script>
+			var c=document.getElementById("myCanvas");
+			var ctx=c.getContext("2d");
+			function sc(){
+				let randomcolor2 = `#${Math.floor(Math.random() * 0xffffff).toString(16)}`;
+				var mcsize = Math.random() * 175 +150;
+				myCanvas.style.width = `${mcsize}px`;
+				myCanvas.style.height = `${mcsize}px`;
+				circleblur.style.width = `${mcsize}px`;
+				circleblur.style.height = `${mcsize}px`;
+				var a =  Math.random() * mcsize;
+				var b =  Math.random() * mcsize;
+				do{
+					var c =  a + Math.random() * 6 - 3;
+					var d =  b + Math.random() * 6 - 3;
+					var e = c;
+					var f = d;
+					ctx.moveTo(a,b);
+					ctx.lineTo(c,d);
+					for (var i=0;i<(Math.random() * 2000 + 500);i++){
+						var g =  e + Math.random() * 6 - 3;
+						var h =  f + Math.random() * 6 - 3;
+						ctx.lineTo(e,f);
+						var ee = e;
+						var ff = f;
+						var e = g;
+						var f = h;
+					}
+					ctx.fillStyle = `${randomcolor2}`;
+					var s = Math.sqrt((a - ee) ** 2 + (b-ff) ** 2)
+					var kk = 225 - mcsize/2;
+					point.style.left = `${kk}px`;
+					point.style.top = `${kk}px`;
+					point2.style.left = `${kk}px`;
+					point2.style.top = `${kk}px`;
+					ctx.fill();
+				}while (s>50)		
+			}
+			function sb(){
+				let randomcolor1 = `#${Math.floor(Math.random() * 0xffffff).toString(16)}`;
+				let randomblur = Math.random() * 13;
+				myCanvas.style.backgroundColor = `${randomcolor1}`;
+				circleblur.style.backgroundColor = `${randomcolor1}`;
+				circleblur.style.filter = `blur(${randomblur}px)`;
+				ctx.beginPath();
+				ctx.clearRect(0,0,500,500);
+				ctx.closePath();
+				for (var u=0;u<(Math.floor(Math.random() * 8 + 2));u++){
+					sc();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			<h1>行星生成器2.0</h1>
+			<p>制作人:Maugfy</p>
+			<hr>
+		</center>
+		<center>
+			<div class="back">
+				<div class="ad" id="point2">
+					<div id="circleblur" class="circle2"></div>
+				</div>
+				<div class="ad" id="point">
+					<canvas id="myCanvas" class="circle"></canvas>
+				</div>
+			</div>
+			<hr>
+			<button class="ac" onclick="sb()">生成</button>
+			<a href="https://maugfy{$rthSuffix}"><button class="ac">返回</button></a>
+		</center>
+	</body>
+</html>

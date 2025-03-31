@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="Shortcut Icon" href="https://i.postimg.cc/76pWSzPt/2022-12-10-205642-2.jpg">
+	<title>心算测试</title>
+	<style>
+		body{
+			background-color:orange;
+			background-attachment:fixed;
+			background-size:cover;
+		}
+		.ac{
+			width:100px;
+			height:100px;
+			background:transparent url('https://i.postimg.cc/ZnV803jQ/123-20240831161001.png');
+			background-size:100% 100%;
+			border-radius:100px;
+			box-shadow:0px 10px 3px black;
+			transform:rotateX(30deg);
+			font-size:20px;
+			transition-property:all;
+			transition-duration:0.1s;
+		}
+		.ac:active{
+			margin:-20px 0px;
+			transform:rotateX(50deg);
+			box-shadow:0px 50px 3px black;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		var y = 0;
+		var k1 = 0;
+		fa=()=>{
+			k1++;
+			if(k1==13){
+				k1*=0;
+			}
+			document.getElementById("b").innerHTML="难度:"+k1;
+		}
+		fb=()=>{
+			y*=0;
+			i*=0;
+			num.value="";
+			num.style.filter=`opacity(${0})`;
+			setTimeout(()=>{
+				var x = Math.floor(Math.random()*(20+20*k1)-(10+10*k1));
+				document.getElementById("f").innerHTML=(x);
+				y+=x;
+				code;
+			},0)
+			for(var i=1;i<2+k1*2;i++){
+				setTimeout(()=>{
+					document.getElementById("f").innerHTML=("加上");
+					code;
+				},2000*i-120*k1*i)
+				setTimeout(()=>{
+					var x = Math.floor(Math.random()*(20+20*k1)-(10+10*k1));
+					document.getElementById("f").innerHTML=(x);
+					y+=x;
+					code;
+				},200+2000*i-120*k1*i);
+			}
+			setTimeout(()=>{
+				document.getElementById("f").innerHTML=("等于几？");
+				num.style.filter=`opacity(${1})`;
+				code;
+			},2000*i-120*k1*i-120)
+		}
+		fy=()=>{
+			window.alert("答案:"+y);
+			num.style.filter=`opacity(${0})`;
+		}
+		fz=()=>{
+			if (document.getElementById("num").value==y){
+				window.alert("你对了");
+			}
+			else{
+				window.alert("你错了,答案是"+y+"你真是太迅了");
+			}
+			num.style.filter=`opacity(${0})`;
+		}
+	</script>
+	<center>
+		<h1>心算测试</h1>
+		<h3 id="b">难度:0</h3>
+		<h4 id="f"></h4>
+		<input type="number" id="num" style="filter:opacity(0)"><br><br>
+		<button id="yes" class="ac" onclick="fz()">确定</button>
+		<button id="c" class="ac" onclick="fy()">查看答案</button>
+		<br><br>
+		<button id="c" class="ac" onclick="fa()">难度改变</button>
+		<button id="a" class="ac" onclick="fb()">开始</button>
+	</center>
+</body>
+</html>
