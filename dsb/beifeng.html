@@ -63,7 +63,7 @@
 			.ocean{
 				width:0px;
 				height:0px;
-				background:url("https://maugfy{$rthSuffix}/ocean.png");
+				background:url("../ocean.png");
 				border-radius:300px;
 				background-size:100% 100%;
 				margin:0px 0px;
@@ -118,7 +118,7 @@
 			.geo1{
 				width:0px;
 				height:0px;
-				background:url("https://maugfy{$rthSuffix}/geography1.png");
+				background:url("../geography1.png");
 				border-radius:300px;
 				background-size:100% 100%;
 				margin:0px 0px;
@@ -130,7 +130,7 @@
 			.geo2{
 				width:0px;
 				height:0px;
-				background:url("https://maugfy{$rthSuffix}/geography2.png");
+				background:url("../geography2.png");
 				border-radius:300px;
 				background-size:100% 100%;
 				margin:0px 0px;
@@ -164,7 +164,7 @@
 				transition-duration:0.3s;
 				transition-property:all;
 				transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-				background:url("https://maugfy{$rthSuffix}/ring1.png");
+				background:url("../ring1.png");
 				background-size:100% 100%;
 			}
 			.ice{
@@ -172,7 +172,7 @@
 				height:0px;
 				left:0px;
 				top:0px;
-				background:url("https://maugfy{$rthSuffix}/ice1.png");
+				background:url("../ice1.png");
 				border-radius:300px;
 				background-size:100% 100%;
 				filter:opacity(1);
@@ -183,7 +183,7 @@
 			.gas{
 				width:0px;
 				height:0px;
-				background:url("https://maugfy{$rthSuffix}/gas3.png");
+				background:url("../gas3.png");
 				border-radius:300px;
 				background-size:100% 100%;
 				filter:opacity(1) blur(0.6px) hue-rotate(0deg) saturate(0);
@@ -195,7 +195,7 @@
 			.volcanos{
 				width:0px;
 				height:0px;
-				background:url("https://maugfy{$rthSuffix}/volcano.png");
+				background:url("../volcano.png");
 				border-radius:300px;
 				background-size:100% 100%;
 				filter:opacity(1);
@@ -207,7 +207,7 @@
 			.lavas{
 				width:0px;
 				height:0px;
-				background:url("https://maugfy{$rthSuffix}/lava.png");
+				background:url("../lava.png");
 				border-radius:300px;
 				background-size:100% 100%;
 				filter:opacity(1);
@@ -225,8 +225,8 @@
 		<script>
 			let n1 = ["Ab","Ac","Ad","Ag","Ain","Al","Am","An","Ar","As","Att","Au","Aw","Ay","Ba","Be","Bi","Bl","Br","Bs","By","Ca","Ce","Ck","Cl","Ch","Cm","Co","Coo","Cr","Cu","Cy","Da","De","Di","Dl","Do","Doo","Dr","Dro","Du","Dy","Ea","Eco","Eff","Eg","En","Er","Es","Eu","Ew","Ex","Ey","Fa","Fe","Fir","Fl","Fo","Fr","Fu","Fy","Ga","Ge","Gi","Gla","Gle","Go","Gra","Gre","Gu","Gy","Ha","He","Hg","Hi","Hl","Ho","Hr","Hy","Im","In","Ir","Ja","Jc","Je","Jo","Jr","Ju","Ka","Ke","Ki","Kr","Ky","La","Le","Li","Lo","Lu","Ly","Ma","Me","Mg","Mi","Mn","Mo","Mr","Mu","My","Na","Ne","Ng","Ni","No","Nu","Ny","On","Or","Ou","Pa","Ph","Pe","Pi","Pm","Po","Pr","Pu","Py","Qu","Ra","Re","Ri","Rn","Ro","Ru","Ry","Sa","Sc","Se","Sh","Si","Sl","So","Squ","Sr","Su","Sw","Sy","Ta","Te","Th","Ti","Tl","To","Tr","Tu","Ty","Ua","Ui","Ul","Un","Ur","Uy","Va","Ve","Vi","Vo","Vy","Wa","We","Wi","Wo","Wu","Wy","Xa","Xe","Xr","Ya","Ye","Yo","Za","Ze","Zh","Zr","Zy"];
 			let n2 = ["ab","ac","ad","ag","ain","al","am","an","ar","as","att","au","aw","ay","ba","be","bi","bl","br","bu","by","ca","ce","ck","cl","ch","cm","co","coo","cr","cu","cy","da","de","di","dl","do","doo","dr","dro","du","dy","ea","eco","eff","eg","en","er","es","eu","ew","ex","ey","fa","fe","fir","fl","fo","fr","fu","fy","ga","ge","gi","gla","gle","go","gra","gre","gu","gy","ha","he","hg","hi","hl","ho","hr","hy","im","in","ir","ja","jc","je","jo","jr","ju","ka","ke","ki","kr","ky","la","le","li","lo","lu","ly","ma","me","mg","mi","mn","mo","mr","mu","my","na","ne","ng","ni","no","nu","ny","on","or","ou","pa","pe","ph","pi","pm","po","pr","pu","py","qu","ra","re","ri","rn","ro","ru","ry","sa","sc","se","sh","si","sl","so","squ","sr","ss","su","sw","sy","ta","te","th","ti","tl","to","tr","tu","ty","ua","uc","ue","ui","ul","un","ur","uy","va","ve","vi","vo","vy","wa","we","wi","wo","wu","wy","xa","xe","xr","ya","ye","yo","za","ze","zh","zr","zy","","","","","","","","","","","","","","","","","",""];
-			let ice = ["https://maugfy{$rthSuffix}/ice1.png","https://maugfy{$rthSuffix}/ice2.png","https://maugfy{$rthSuffix}/ice3.png","https://maugfy{$rthSuffix}/ice4.png","https://maugfy{$rthSuffix}/ice5.png"];
-			let gas = ["https://maugfy{$rthSuffix}/gas1.png","https://maugfy{$rthSuffix}/gas2.png","https://maugfy{$rthSuffix}/gas3.png","https://maugfy{$rthSuffix}/gas4.png","https://maugfy{$rthSuffix}/gas5.png"];
+			let ice = ["../ice1.png","../ice2.png","../ice3.png","../ice4.png","../ice5.png"];
+			let gas = ["../gas1.png","../gas2.png","../gas3.png","../gas4.png","../gas5.png"];
 			let cloudr = ["https://i.postimg.cc/XvV9nsW3/Image-1724648393792.png","https://i.postimg.cc/sgzTZ9zH/Image-1724648383060.png","https://i.postimg.cc/PrW4hpDW/Image-1724648397078.png"];
 		</script>
 	</head>
